@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bunetix - Services</title>
+    <title>Bunetix - Our Clients</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -29,14 +29,14 @@
             height: 100%;
             z-index: -1;
             background: 
-                radial-gradient(circle at 25% 75%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 75% 25%, rgba(144, 224, 239, 0.15) 0%, transparent 50%);
-            animation: backgroundShift 15s ease-in-out infinite alternate;
+                radial-gradient(circle at 35% 65%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 65% 35%, rgba(144, 224, 239, 0.15) 0%, transparent 50%);
+            animation: backgroundShift 18s ease-in-out infinite alternate;
         }
 
         @keyframes backgroundShift {
             0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.1) rotate(2deg); }
+            100% { transform: scale(1.1) rotate(4deg); }
         }
 
         /* Navigation */
@@ -180,32 +180,33 @@
             }
         }
 
-        /* Services Grid */
-        .services-grid {
+        /* Clients Grid */
+        .clients-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 4rem;
+            margin-bottom: 6rem;
         }
 
-        .service-card {
+        .client-card {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(144, 224, 239, 0.2);
             border-radius: 20px;
             padding: 2.5rem;
+            text-align: center;
             backdrop-filter: blur(10px);
             transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
             animation: slideInUp 0.8s ease-out both;
         }
 
-        .service-card:nth-child(1) { animation-delay: 0.1s; }
-        .service-card:nth-child(2) { animation-delay: 0.2s; }
-        .service-card:nth-child(3) { animation-delay: 0.3s; }
-        .service-card:nth-child(4) { animation-delay: 0.4s; }
-        .service-card:nth-child(5) { animation-delay: 0.5s; }
-        .service-card:nth-child(6) { animation-delay: 0.6s; }
+        .client-card:nth-child(1) { animation-delay: 0.1s; }
+        .client-card:nth-child(2) { animation-delay: 0.2s; }
+        .client-card:nth-child(3) { animation-delay: 0.3s; }
+        .client-card:nth-child(4) { animation-delay: 0.4s; }
+        .client-card:nth-child(5) { animation-delay: 0.5s; }
+        .client-card:nth-child(6) { animation-delay: 0.6s; }
+        .client-card:nth-child(7) { animation-delay: 0.7s; }
+        .client-card:nth-child(8) { animation-delay: 0.8s; }
 
         @keyframes slideInUp {
             from {
@@ -218,111 +219,53 @@
             }
         }
 
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(135deg, #0077B6, #00B4D8, #90E0EF);
-            transform: scaleX(0);
-            transition: transform 0.4s ease;
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .service-card:hover {
+        .client-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 119, 182, 0.4);
+            box-shadow: 0 25px 50px rgba(0, 119, 182, 0.3);
             border-color: rgba(0, 180, 216, 0.4);
         }
 
-        .service-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0077B6, #00B4D8);
+        .client-logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #0077B6, #00B4D8, #90E0EF);
             border-radius: 16px;
+            margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 2rem;
             font-size: 2rem;
-            transition: all 0.3s ease;
-            animation: iconFloat 4s ease-in-out infinite;
+            font-weight: 700;
+            color: white;
+            animation: logoFloat 4s ease-in-out infinite;
         }
 
-        @keyframes iconFloat {
+        @keyframes logoFloat {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(5deg); }
+            50% { transform: translateY(-5px) rotate(3deg); }
         }
 
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(10deg);
-        }
-
-        .service-title {
-            font-size: 1.5rem;
+        .client-name {
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             color: #ffffff;
         }
 
-        .service-description {
+        .client-industry {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .client-description {
             color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
-        .service-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .service-features li {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
-        }
-
-        .service-price {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #00B4D8;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-button {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #0077B6, #00B4D8);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-align: center;
-            width: 100%;
-        }
-
-        .service-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.4);
-        }
-
-        /* Process Section */
-        .process-section {
+        /* Success Stories Section */
+        .success-stories {
             margin: 6rem 0;
             padding: 4rem 0;
             background: rgba(0, 119, 182, 0.1);
@@ -330,32 +273,30 @@
             border: 1px solid rgba(144, 224, 239, 0.2);
         }
 
-        .process-grid {
+        .stories-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
-        .process-step {
-            text-align: center;
-            padding: 2rem;
+        .story-card {
             background: rgba(255, 255, 255, 0.05);
             border-radius: 16px;
+            padding: 2rem;
             border: 1px solid rgba(144, 224, 239, 0.2);
             transition: all 0.3s ease;
             animation: fadeInScale 0.8s ease-out both;
         }
 
-        .process-step:nth-child(1) { animation-delay: 0.1s; }
-        .process-step:nth-child(2) { animation-delay: 0.2s; }
-        .process-step:nth-child(3) { animation-delay: 0.3s; }
-        .process-step:nth-child(4) { animation-delay: 0.4s; }
+        .story-card:nth-child(1) { animation-delay: 0.1s; }
+        .story-card:nth-child(2) { animation-delay: 0.2s; }
+        .story-card:nth-child(3) { animation-delay: 0.3s; }
 
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.9);
             }
             to {
                 opacity: 1;
@@ -363,12 +304,94 @@
             }
         }
 
-        .process-step:hover {
+        .story-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 119, 182, 0.3);
         }
 
-        .process-number {
+        .story-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #00B4D8;
+        }
+
+        .story-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .story-results {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .result-item {
+            background: rgba(0, 180, 216, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #CAF0F8;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            margin-top: 6rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, #ffffff, #CAF0F8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(144, 224, 239, 0.2);
+            border-radius: 20px;
+            padding: 2.5rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease-out both;
+        }
+
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 119, 182, 0.3);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
             width: 60px;
             height: 60px;
             background: linear-gradient(135deg, #0077B6, #00B4D8);
@@ -376,32 +399,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1rem;
-            font-size: 1.5rem;
             font-weight: 700;
             color: white;
-        }
-
-        .process-title {
             font-size: 1.2rem;
+        }
+
+        .author-info h4 {
             font-weight: 600;
-            margin-bottom: 1rem;
-            color: #00B4D8;
+            margin-bottom: 0.25rem;
+            color: #ffffff;
         }
 
-        .process-description {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
+        .author-info p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
         }
 
-        /* CTA Section */
-        .cta-section {
+        /* Partnership CTA */
+        .partnership-cta {
+            margin: 6rem 0;
             text-align: center;
             padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.2), rgba(0, 180, 216, 0.1));
             border-radius: 20px;
             border: 1px solid rgba(144, 224, 239, 0.2);
-            margin-top: 4rem;
         }
 
         .cta-title {
@@ -440,17 +461,6 @@
             box-shadow: 0 15px 35px rgba(0, 119, 182, 0.4);
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            background: linear-gradient(135deg, #ffffff, #CAF0F8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-menu {
@@ -465,15 +475,15 @@
                 padding: 2rem 1rem;
             }
 
-            .services-grid {
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .testimonials-grid {
                 grid-template-columns: 1fr;
             }
 
-            .service-card {
-                padding: 2rem;
-            }
-
-            .process-grid {
+            .stories-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -490,8 +500,8 @@
             <ul class="nav-menu">
                 <li><a href="home.html" class="nav-link">Home</a></li>
                 <li><a href="about.html" class="nav-link">About</a></li>
-                <li><a href="services.html" class="nav-link active">Services</a></li>
-                <li><a href="clients.html" class="nav-link">Our Clients</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="clients.html" class="nav-link active">Our Clients</a></li>
                 <li><a href="contact.html" class="nav-link">Contact Us</a></li>
             </ul>
         </div>
@@ -502,161 +512,156 @@
         <div class="container">
             <!-- Page Header -->
             <header class="page-header">
-                <h1 class="page-title">Our Services</h1>
+                <h1 class="page-title">Our Valued Clients</h1>
                 <p class="page-subtitle">
-                    Comprehensive digital solutions tailored to transform your business and drive sustainable growth in the digital age.
+                    Trusted by leading companies worldwide to deliver exceptional digital transformation results and drive business success.
                 </p>
             </header>
 
-            <!-- Services Grid -->
-            <section class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🚀</div>
-                    <h3 class="service-title">Digital Transformation</h3>
-                    <p class="service-description">
-                        Complete digital overhaul of your business processes, systems, and customer experiences to drive efficiency and innovation across all departments.
-                    </p>
-                    <ul class="service-features">
-                        <li>Business Process Automation</li>
-                        <li>Cloud Migration & Integration</li>
-                        <li>Digital Strategy Development</li>
-                        <li>Change Management Support</li>
-                        <li>Legacy System Modernization</li>
-                    </ul>
-                    <div class="service-price">Starting from $5,000</div>
-                    <a href="contact.html" class="service-button">Get Started</a>
+            <!-- Clients Grid -->
+            <section class="clients-grid">
+                <div class="client-card">
+                    <div class="client-logo">TC</div>
+                    <h3 class="client-name">TechCorp Solutions</h3>
+                    <p class="client-industry">Technology & Software</p>
+                    <p class="client-description">Leading software development company specializing in enterprise solutions and digital innovation.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">💻</div>
-                    <h3 class="service-title">Web Development</h3>
-                    <p class="service-description">
-                        Custom web applications and websites built with modern technologies to deliver exceptional user experiences and drive business growth.
-                    </p>
-                    <ul class="service-features">
-                        <li>Responsive Web Design</li>
-                        <li>E-commerce Solutions</li>
-                        <li>CMS Development</li>
-                        <li>API Integration</li>
-                        <li>Performance Optimization</li>
-                    </ul>
-                    <div class="service-price">Starting from $3,000</div>
-                    <a href="contact.html" class="service-button">Get Started</a>
+                <div class="client-card">
+                    <div class="client-logo">GS</div>
+                    <h3 class="client-name">Global Systems</h3>
+                    <p class="client-industry">Business Consulting</p>
+                    <p class="client-description">International consulting firm providing strategic business solutions to Fortune 500 companies.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3 class="service-title">Mobile App Development</h3>
-                    <p class="service-description">
-                        Native and cross-platform mobile applications that engage users and drive business growth with intuitive design and powerful functionality.
-                    </p>
-                    <ul class="service-features">
-                        <li>iOS & Android Apps</li>
-                        <li>Cross-platform Solutions</li>
-                        <li>UI/UX Design</li>
-                        <li>App Store Optimization</li>
-                        <li>Maintenance & Support</li>
-                    </ul>
-                    <div class="service-price">Starting from $8,000</div>
-                    <a href="contact.html" class="service-button">Get Started</a>
+                <div class="client-card">
+                    <div class="client-logo">IF</div>
+                    <h3 class="client-name">InnovateFin</h3>
+                    <p class="client-industry">Financial Services</p>
+                    <p class="client-description">Modern fintech company revolutionizing digital banking and payment solutions.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">☁️</div>
-                    <h3 class="service-title">Cloud Solutions</h3>
-                    <p class="service-description">
-                        Scalable cloud infrastructure and services to optimize performance, security, and cost-efficiency while ensuring business continuity.
-                    </p>
-                    <ul class="service-features">
-                        <li>Cloud Migration Strategy</li>
-                        <li>Infrastructure Setup</li>
-                        <li>DevOps Implementation</li>
-                        <li>24/7 Monitoring</li>
-                        <li>Security & Compliance</li>
-                    </ul>
-                    <div class="service-price">Starting from $2,500</div>
-                    <a href="contact.html" class="service-button">Get Started</a>
+                <div class="client-card">
+                    <div class="client-logo">HC</div>
+                    <h3 class="client-name">HealthCare Plus</h3>
+                    <p class="client-industry">Healthcare & Medical</p>
+                    <p class="client-description">Comprehensive healthcare provider focused on patient-centered digital health solutions.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <h3 class="service-title">UI/UX Design</h3>
-                    <p class="service-description">
-                        User-centered design solutions that create intuitive and engaging digital experiences for your customers, increasing satisfaction and conversion rates.
-                    </p>
-                    <ul class="service-features">
-                        <li>User Research & Analysis</li>
-                        <li>Wireframing & Prototyping</li>
-                        <li>Visual Design</li>
-                        <li>Usability Testing</li>
-                        <li>Design System Creation</li>
-                    </ul>
-                    <div class="service-price">Starting from $2,000</div>
-                    <a href="contact.html" class="service-button">Get Started</a>
+                <div class="client-card">
+                    <div class="client-logo">ER</div>
+                    <h3 class="client-name">EcoRetail</h3>
+                    <p class="client-industry">E-commerce & Retail</p>
+                    <p class="client-description">Sustainable retail company leading the green commerce revolution with innovative solutions.</p>
                 </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3 class="service-title">Data Analytics</h3>
-                    <p class="service-description">
-                        Transform your data into actionable insights with advanced analytics and business intelligence solutions that drive informed decision-making.
-                    </p>
-                    <ul class="service-features">
-                        <li>Data Visualization</li>
-                        <li>Business Intelligence</li>
-                        <li>Predictive Analytics</li>
-                        <li>Custom Dashboards</li>
-                        <li>Real-time Reporting</li>
-                    </ul>
-                    <div class="service-price">Starting from $4,000</div>
-                    <a href="contact.html" class="service-button">Get Started</a>
+                <div class="client-card">
+                    <div class="client-logo">SE</div>
+                    <h3 class="client-name">Smart Energy</h3>
+                    <p class="client-industry">Energy & Utilities</p>
+                    <p class="client-description">Clean energy provider developing smart grid technologies and renewable energy solutions.</p>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">DM</div>
+                    <h3 class="client-name">Digital Media</h3>
+                    <p class="client-industry">Media & Entertainment</p>
+                    <p class="client-description">Creative media agency producing cutting-edge digital content and immersive experiences.</p>
+                </div>
+                <div class="client-card">
+                    <div class="client-logo">AL</div>
+                    <h3 class="client-name">AutoLogistics</h3>
+                    <p class="client-industry">Transportation & Logistics</p>
+                    <p class="client-description">Advanced logistics company optimizing supply chain management with AI-driven solutions.</p>
                 </div>
             </section>
 
-            <!-- Process Section -->
-            <section class="process-section">
+            <!-- Success Stories -->
+            <section class="success-stories">
                 <div class="container">
-                    <h2 class="section-title">Our Process</h2>
-                    <div class="process-grid">
-                        <div class="process-step">
-                            <div class="process-number">1</div>
-                            <h3 class="process-title">Discovery</h3>
-                            <p class="process-description">
-                                We start by understanding your business goals, challenges, and requirements through comprehensive analysis and stakeholder interviews.
+                    <h2 class="section-title">Success Stories</h2>
+                    <div class="stories-grid">
+                        <div class="story-card">
+                            <h3 class="story-title">TechCorp Digital Transformation</h3>
+                            <p class="story-description">
+                                Helped TechCorp modernize their legacy systems and implement cloud-based solutions, resulting in significant operational improvements and cost savings.
                             </p>
+                            <div class="story-results">
+                                <span class="result-item">300% Efficiency Increase</span>
+                                <span class="result-item">50% Cost Reduction</span>
+                                <span class="result-item">99.9% Uptime</span>
+                            </div>
                         </div>
-                        <div class="process-step">
-                            <div class="process-number">2</div>
-                            <h3 class="process-title">Strategy</h3>
-                            <p class="process-description">
-                                Based on our findings, we develop a tailored strategy and roadmap that aligns with your objectives and maximizes ROI.
+                        <div class="story-card">
+                            <h3 class="story-title">InnovateFin Mobile Platform</h3>
+                            <p class="story-description">
+                                Developed a comprehensive mobile banking platform that revolutionized customer experience and increased user engagement significantly.
                             </p>
+                            <div class="story-results">
+                                <span class="result-item">2M+ Active Users</span>
+                                <span class="result-item">85% User Satisfaction</span>
+                                <span class="result-item">40% Revenue Growth</span>
+                            </div>
                         </div>
-                        <div class="process-step">
-                            <div class="process-number">3</div>
-                            <h3 class="process-title">Implementation</h3>
-                            <p class="process-description">
-                                Our expert team executes the plan using agile methodologies, ensuring quality delivery and regular communication throughout.
+                        <div class="story-card">
+                            <h3 class="story-title">EcoRetail E-commerce Solution</h3>
+                            <p class="story-description">
+                                Built a scalable e-commerce platform with advanced analytics and personalization features that drove substantial business growth.
                             </p>
-                        </div>
-                        <div class="process-step">
-                            <div class="process-number">4</div>
-                            <h3 class="process-title">Optimization</h3>
-                            <p class="process-description">
-                                We continuously monitor, analyze, and optimize the solution to ensure peak performance and ongoing success.
-                            </p>
+                            <div class="story-results">
+                                <span class="result-item">500% Sales Increase</span>
+                                <span class="result-item">60% Conversion Rate</span>
+                                <span class="result-item">24/7 Availability</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- CTA Section -->
-            <section class="cta-section">
-                <h2 class="cta-title">Ready to Transform Your Business?</h2>
+            <!-- Testimonials Section -->
+            <section class="testimonials-section">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Bunetix transformed our entire digital infrastructure with exceptional expertise and professionalism. Their innovative solutions resulted in a 300% increase in our operational efficiency and significant cost savings. The team's dedication and technical excellence exceeded all our expectations."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-info">
+                                <h4>John Smith</h4>
+                                <p>CEO, TechCorp Solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "Working with Bunetix was a game-changing experience for our company. Their innovative approach and deep understanding of our industry helped us stay ahead of the competition. The mobile platform they developed has revolutionized how we serve our customers."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MJ</div>
+                            <div class="author-info">
+                                <h4>Maria Johnson</h4>
+                                <p>CTO, Global Systems</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">
+                            "The team at Bunetix delivered beyond our expectations with their comprehensive digital transformation strategy. They understood our unique challenges and provided solutions that perfectly aligned with our business goals. Highly recommended for any organization looking to innovate."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RB</div>
+                            <div class="author-info">
+                                <h4>Robert Brown</h4>
+                                <p>Director, InnovateFin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Partnership CTA -->
+            <section class="partnership-cta">
+                <h2 class="cta-title">Join Our Success Stories</h2>
                 <p class="cta-description">
-                    Let's discuss how our services can help you achieve your digital transformation goals and drive sustainable growth. Our team of experts is ready to help you succeed.
+                    Ready to transform your business and achieve remarkable results? Join hundreds of successful companies that have already partnered with us to drive innovation and growth.
                 </p>
-                <a href="contact.html" class="cta-button">Start Your Journey</a>
+                <a href="contact.html" class="cta-button">Start Your Partnership</a>
             </section>
         </div>
     </main>
@@ -677,7 +682,7 @@
         }, observerOptions);
 
         // Observe all animated elements
-        document.querySelectorAll('.service-card, .process-step').forEach(el => {
+        document.querySelectorAll('.client-card, .story-card, .testimonial-card').forEach(el => {
             observer.observe(el);
         });
 
