@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunetix - Move your business to next level</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Ancizar Serif';
+            src: url('https://unal.edu.co/fileadmin/templates/fonts/ancizar-serif/AncizarSerif-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #03045E;
+            overflow-x: hidden;
+        }
+
+        .hero-container {
+            position: relative;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #03045E 0%, #0077B6 50%, #03045E 100%);
+        }
+
+        .background-gradient {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 180, 216, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(144, 224, 239, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(202, 240, 248, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(3, 4, 94, 0.8) 0%, transparent 50%, rgba(0, 119, 182, 0.8) 100%);
+            filter: blur(60px);
+            animation: gradientShift 8s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(202, 240, 248, 0.6);
+            border-radius: 50%;
+            animation: float-particle 20s linear infinite;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px);
+                opacity: 0;
+            }
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px solid rgba(144, 224, 239, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 
+                0 8px 32px 0 rgba(144, 224, 239, 0.2),
+                inset 0 1px 0 rgba(202, 240, 248, 0.3);
+            opacity: 0;
+            transform: translateY(-150px);
+            animation: fadeInFloat 3s cubic-bezier(0.23, 0.86, 0.39, 0.96) forwards;
+        }
+
+        .geometric-shape::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, transparent, rgba(144, 224, 239, 0.2), transparent);
+            animation: rotate 10s linear infinite;
+        }
+
+        .geometric-shape::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(202, 240, 248, 0.4), transparent 70%);
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .shape-1 {
+            width: 600px;
+            height: 140px;
+            left: -10%;
+            top: 15%;
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.3), rgba(0, 180, 216, 0.2), transparent);
+            transform: rotate(12deg) translateY(-150px);
+            animation-delay: 0.3s;
+        }
+
+        .shape-2 {
+            width: 500px;
+            height: 120px;
+            right: -5%;
+            top: 70%;
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.3), rgba(144, 224, 239, 0.2), transparent);
+            transform: rotate(-15deg) translateY(-150px);
+            animation-delay: 0.5s;
+        }
+
+        .shape-3 {
+            width: 300px;
+            height: 80px;
+            left: 5%;
+            bottom: 5%;
+            background: linear-gradient(135deg, rgba(144, 224, 239, 0.3), rgba(202, 240, 248, 0.2), transparent);
+            transform: rotate(-8deg) translateY(-150px);
+            animation-delay: 0.4s;
+        }
+
+        .shape-4 {
+            width: 200px;
+            height: 60px;
+            right: 15%;
+            top: 10%;
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.3), rgba(0, 180, 216, 0.2), transparent);
+            transform: rotate(20deg) translateY(-150px);
+            animation-delay: 0.6s;
+        }
+
+        .shape-5 {
+            width: 150px;
+            height: 40px;
+            left: 20%;
+            top: 5%;
+            background: linear-gradient(135deg, rgba(144, 224, 239, 0.3), rgba(202, 240, 248, 0.2), transparent);
+            transform: rotate(-25deg) translateY(-150px);
+            animation-delay: 0.7s;
+        }
+
+        @keyframes fadeInFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(-150px) rotate(var(--initial-rotate, 0deg)) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(var(--final-rotate, 0deg)) scale(1);
+            }
+        }
+
+        .shape-1 {
+            --initial-rotate: -3deg;
+            --final-rotate: 12deg;
+            animation: fadeInFloat 3s cubic-bezier(0.23, 0.86, 0.39, 0.96) 0.3s forwards, 
+                       float 15s ease-in-out infinite,
+                       pulse 4s ease-in-out infinite;
+        }
+
+        .shape-2 {
+            --initial-rotate: 0deg;
+            --final-rotate: -15deg;
+            animation: fadeInFloat 3s cubic-bezier(0.23, 0.86, 0.39, 0.96) 0.5s forwards, 
+                       float 18s ease-in-out infinite,
+                       pulse 5s ease-in-out infinite;
+        }
+
+        .shape-3 {
+            --initial-rotate: 7deg;
+            --final-rotate: -8deg;
+            animation: fadeInFloat 3s cubic-bezier(0.23, 0.86, 0.39, 0.96) 0.4s forwards, 
+                       float 12s ease-in-out infinite,
+                       pulse 3s ease-in-out infinite;
+        }
+
+        .shape-4 {
+            --initial-rotate: 5deg;
+            --final-rotate: 20deg;
+            animation: fadeInFloat 3s cubic-bezier(0.23, 0.86, 0.39, 0.96) 0.6s forwards, 
+                       float 20s ease-in-out infinite,
+                       pulse 6s ease-in-out infinite;
+        }
+
+        .shape-5 {
+            --initial-rotate: -10deg;
+            --final-rotate: -25deg;
+            animation: fadeInFloat 3s cubic-bezier(0.23, 0.86, 0.39, 0.96) 0.7s forwards, 
+                       float 14s ease-in-out infinite,
+                       pulse 4.5s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(var(--final-rotate, 0deg)) scale(1);
+            }
+            33% {
+                transform: translateY(-20px) rotate(calc(var(--final-rotate, 0deg) + 2deg)) scale(1.05);
+            }
+            66% {
+                transform: translateY(15px) rotate(calc(var(--final-rotate, 0deg) - 2deg)) scale(0.95);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 
+                    0 8px 32px 0 rgba(144, 224, 239, 0.2),
+                    inset 0 1px 0 rgba(202, 240, 248, 0.3);
+            }
+            50% {
+                box-shadow: 
+                    0 12px 40px 0 rgba(144, 224, 239, 0.3),
+                    inset 0 1px 0 rgba(202, 240, 248, 0.4);
+            }
+        }
+
+        .content-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .content-center {
+            max-width: 768px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(144, 224, 239, 0.2);
+            backdrop-filter: blur(10px);
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(50px) scale(0.8);
+            animation: fadeUpScale 1.2s cubic-bezier(0.25, 0.4, 0.25, 1) 0.5s forwards;
+        }
+
+        .badge-logo {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #0077B6, #00B4D8, #90E0EF);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            animation: logoSpin 3s ease-in-out infinite;
+        }
+
+        @keyframes logoSpin {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        .badge-text {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .main-title {
+            font-size: clamp(2.5rem, 8vw, 6rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.025em;
+            line-height: 1.1;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUpScale 1.5s cubic-bezier(0.25, 0.4, 0.25, 1) 0.8s forwards;
+        }
+
+        .title-line-1 {
+            background: linear-gradient(135deg, #ffffff, #CAF0F8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            animation: titleGlow 3s ease-in-out infinite alternate;
+        }
+
+        .title-line-2 {
+            background: linear-gradient(135deg, #00B4D8, #90E0EF, #CAF0F8);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            display: block;
+            animation: gradientFlow 4s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0% { filter: brightness(1) drop-shadow(0 0 10px rgba(144, 224, 239, 0.3)); }
+            100% { filter: brightness(1.2) drop-shadow(0 0 20px rgba(144, 224, 239, 0.5)); }
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .description {
+            font-family: 'Ancizar Serif', serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            line-height: 1.7;
+            font-weight: 300;
+            letter-spacing: 0.025em;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeUpScale 1.2s cubic-bezier(0.25, 0.4, 0.25, 1) 1.1s forwards;
+        }
+
+        .explore-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2.5rem;
+            background: linear-gradient(135deg, #0077B6, #00B4D8, #90E0EF);
+            background-size: 200% 200%;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.4s cubic-bezier(0.25, 0.4, 0.25, 1);
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+            animation: fadeUpScale 1.5s cubic-bezier(0.25, 0.4, 0.25, 1) 1.4s forwards;
+            box-shadow: 
+                0 15px 35px rgba(0, 119, 182, 0.4),
+                0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .explore-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .explore-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .explore-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 
+                0 25px 50px rgba(0, 119, 182, 0.6),
+                0 10px 25px rgba(0, 0, 0, 0.4);
+            background-position: 100% 100%;
+        }
+
+        .explore-button:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .explore-button::after {
+            content: '→';
+            transition: transform 0.3s ease;
+            font-size: 1.2em;
+        }
+
+        .explore-button:hover::after {
+            transform: translateX(6px);
+        }
+
+        @keyframes fadeUpScale {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .overlay-gradient {
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(to top, #03045E 0%, transparent 30%, transparent 70%, rgba(3, 4, 94, 0.8) 100%),
+                radial-gradient(circle at center, transparent 0%, rgba(3, 4, 94, 0.3) 100%);
+            pointer-events: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
+                width: 80%;
+                height: 60px;
+            }
+
+            .badge {
+                margin-bottom: 2rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .main-title {
+                margin-bottom: 1.5rem;
+            }
+
+            .description {
+                margin-bottom: 2rem;
+                padding: 0 1rem;
+            }
+
+            .explore-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <!-- Background Gradient -->
+        <div class="background-gradient"></div>
+
+        <!-- Floating Particles -->
+        <div class="particles" id="particles"></div>
+
+        <!-- Geometric Shapes -->
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+        <div class="geometric-shape shape-4"></div>
+        <div class="geometric-shape shape-5"></div>
+
+        <!-- Main Content -->
+        <div class="content-container">
+            <div class="content-center">
+                <!-- Badge -->
+                <div class="badge">
+                    <div class="badge-logo">B</div>
+                    <span class="badge-text">BUNETIX</span>
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="main-title">
+                    <span class="title-line-1">Move your business</span>
+                    <span class="title-line-2">to next level</span>
+                </h1>
+
+                <!-- Description -->
+                <p class="description">
+                    Crafting exceptional digital experiences through innovative design and cutting-edge technology that drives your business forward into the future.
+                </p>
+
+                <!-- Explore Button -->
+                <a href="home.html" class="explore-button">
+                    Explore Solutions
+                </a>
+            </div>
+        </div>
+
+        <!-- Overlay Gradient -->
+        <div class="overlay-gradient"></div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Enhanced mouse parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.geometric-shape');
+            const mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+            const mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.8;
+                const x = mouseX * speed * 10;
+                const y = mouseY * speed * 10;
+                
+                shape.style.transform += ` translate(${x}px, ${y}px)`;
+            });
+        });
+
+        // Button click animation and navigation
+        document.querySelector('.explore-button').addEventListener('click', function(e) {
+            // Create ripple effect
+            const ripple = document.createElement('div');
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.left = (e.clientX - this.offsetLeft) + 'px';
+            ripple.style.top = (e.clientY - this.offsetTop) + 'px';
+            ripple.style.width = ripple.style.height = '20px';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize particles
+        createParticles();
+
+        // Reset shapes position periodically
+        setInterval(() => {
+            const shapes = document.querySelectorAll('.geometric-shape');
+            shapes.forEach(shape => {
+                shape.style.transition = 'transform 2s ease-out';
+                shape.style.transform = shape.style.transform.replace(/translate$$[^)]*$$/g, '');
+                
+                setTimeout(() => {
+                    shape.style.transition = '';
+                }, 2000);
+            });
+        }, 15000);
+    </script>
+</body>
+</html>
